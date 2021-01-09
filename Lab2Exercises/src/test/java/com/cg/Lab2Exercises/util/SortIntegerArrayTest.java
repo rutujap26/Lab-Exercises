@@ -6,8 +6,41 @@
  * @author rutuja pise
  */
 
+
 package com.cg.Lab2Exercises.util;
 
-public class SortIntegerArrayTest {
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import org.junit.Before;
+import org.junit.Test;
 
+public class SortIntegerArrayTest {
+	private SortIntegerArray integerArray;
+
+	@Before
+	public void setUp() {
+		integerArray = new SortIntegerArray();
+	}
+	
+	@Test
+	public void testCalculate_GivenEmptyIntegerArray_ShouldReturnNullAsInteger(){
+		int[] numArray = {};
+		int[] result = integerArray.getSorted(numArray);
+		assertEquals(null, result);
+	}
+	@Test
+	public void testCalculate_GivenSingleIntegerArray_ShouldReturn5AsInteger(){
+		int[] numArray = {5};
+		int[] result = integerArray.getSorted(numArray);
+		assertArrayEquals(numArray, result);
+	}
+	@Test
+	public void testCalculate_GivenThreeIntegerArray_ShouldReturn5AsInteger(){
+		int[] numArray = {5,2,9};
+		int[] expected = {2,5,9};
+		int[] result = integerArray.getSorted(numArray);
+		assertArrayEquals(expected, result);
+	}
+	
+	
 }

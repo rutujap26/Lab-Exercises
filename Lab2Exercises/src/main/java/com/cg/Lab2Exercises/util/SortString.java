@@ -29,14 +29,14 @@ public class SortString {
 
 	}
 
-	public static String sortString(String[] inputArray) {
+	public static String[] sortString(String[] inputArray) {
 		int length = inputArray.length;
-		String result = new String();
+		String[] result = new String[length];
 		StringBuilder sb = new StringBuilder();
 		if (length == 0) {
-			throw new RuntimeException("No Input");
+			return null;
 		} else if (length == 1) {
-			result = inputArray[0].toUpperCase();
+			result[0] = inputArray[0].toUpperCase();
 			return result;
 		} else if (length > 1) {
 
@@ -45,26 +45,27 @@ public class SortString {
 			if (size % 2 != 0) {
 				for (int i = 0; i < size; i++) {
 					if (i < (size / 2) + 1) {
-						inputArray[i] = inputArray[i].toUpperCase();
-						sb.append(inputArray[i] + " ");
+						result[i] = inputArray[i].toUpperCase();
+						
 					} else {
-						inputArray[i] = inputArray[i].toLowerCase();
-						sb.append(inputArray[i] + " ");
+						result[i] = inputArray[i].toLowerCase();
+						
 					}
 				}
 			} else {
 				for (int i = 0; i < size; i++) {
 					if (i < (size / 2)) {
-						inputArray[i] = inputArray[i].toUpperCase();
-						sb.append(inputArray[i] + " ");
+						result[i] = inputArray[i].toUpperCase();
+						
 					} else {
-						inputArray[i] = inputArray[i].toLowerCase();
-						sb.append(inputArray[i] + " ");
+						result[i] = inputArray[i].toLowerCase();
+						
 					}
 				}
 			}
 		}
-		return sb.toString();
+		
+		return result;
 
 	}
 }

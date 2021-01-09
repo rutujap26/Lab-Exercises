@@ -29,20 +29,32 @@ public class SortIntegerArray {
 
 	public static int[] getSorted(int[] array) {
 		int length = array.length;
-		int[] revArray = new int[length];
-		int j = length;
-		for(int i=0; i<length; i++) {
-			revArray[j-1] = array[i];
-			j--;
+		int result[] = new int[length];
+		StringBuilder sb = new StringBuilder();
+		if(length==0) {
+			return null;
 		}
-		System.out.println("Reversed array: ");
-		for(int k=0; k<length; k++) {
-			System.out.println( revArray[k]);
+		else if(length==1) {
+			sb.append(array[0]);
+			sb.reverse();
+			result[0] = Integer.parseInt(sb.toString());
+			return result;
 		}
-		
-		Arrays.sort(revArray);
-		System.out.println("Sorted Array: "+Arrays.toString(revArray));
-		return revArray;
+		else {
+			int j = length;
+			for(int i=0; i<length; i++) {
+				result[j-1] = array[i];
+				j--;
+			}
+			System.out.println("Reversed array: ");
+			for(int k=0; k<length; k++) {
+				System.out.println( result[k]);
+			}
+			
+			Arrays.sort(result);
+			System.out.println("Sorted Array: "+Arrays.toString(result));
+		}
+		return result;
 		
 	}
 

@@ -10,6 +10,39 @@
 
 package com.cg.Lab2Exercises.util;
 
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
 public class SortStringTest {
+	private SortString sortStringArray;
+
+	@Before
+	public void setUp() {
+		sortStringArray = new SortString();
+	}
+	
+	@Test
+	public void testCalculate_GivenEmptyString_ShouldReturnNullAsResult(){
+		String[] inputString = {};
+		String[] result = sortStringArray.sortString(inputString);
+		assertArrayEquals(null, result);
+	}
+	@Test
+	public void testCalculate_GivenSingleString_ShouldReturnSingleStringAsResult(){
+		String[] inputString = {"cat"};
+		String[] expected = {"CAT"};
+		String[] result = sortStringArray.sortString(inputString);
+		assertArrayEquals(expected, result);
+	}
+	@Test
+	public void testCalculate_GivenMutipleString_ShouldReturnSortedStringAsResult(){
+		String[] inputString = {"cat","dog","peacock","owl","parrot","cow"};
+		String[] expected = {"CAT","COW","DOG","owl","parrot","peacock"};
+		String[] result = sortStringArray.sortString(inputString);
+		assertArrayEquals(expected, result);
+	}
+	
 
 }
