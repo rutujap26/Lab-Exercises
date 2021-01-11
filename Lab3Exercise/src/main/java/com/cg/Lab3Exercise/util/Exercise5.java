@@ -6,17 +6,29 @@
 
 package com.cg.Lab3Exercise.util;
 
+import java.io.*;
+
 public class Exercise5 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		String str = "Good Morning Everyone, Have a great day ahead";
-		String words[] = str.split(",.");
-		String lines[] = str.split("\n");
-		System.out.println("Number of characters: "+str.length());
-		System.out.println("Number of words: "+words.length);
-		System.out.println("Number of lines: "+lines.length);
-
+		FileInputStream file = new FileInputStream("C:\\Users\\rutuj\\Desktop\\Capgemini\\STS Assignments\\Lab3Exercise\\test.txt");
+		int lines = 1, words = 1;
+		int length = file.available();
+		char ch;
+		for(int i=0; i<=length; i++) {
+			ch = (char)file.read();
+			if(ch=='\n') {
+				lines++;
+			}
+			else if(ch == ' '){
+				words++;
+			}
+		}
+		System.out.println("Number of Characters: "+length);
+		System.out.println("Number of Lines: "+lines);
+		System.out.println("Number of Words: "+words);
+		
 	}
 
 }
